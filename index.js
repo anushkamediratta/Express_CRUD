@@ -33,6 +33,16 @@ app.get("/showUser/:email",(req,res)=>{
         res.json(result)
     })
 })
+// delete user
+app.delete("/deleteUser/:email",(req,res)=>{
+    let emailId=req.params.email
+    let sql=`DELETE FROM employee where email='${emailId}'`
+    db.query(sql,(err,result)=>{
+        if(err) throw err
+        else
+        res.json(result)
+    })
+})
 
 
 
